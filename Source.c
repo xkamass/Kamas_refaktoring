@@ -3,7 +3,7 @@
 #include <stdlib.h> 
 #include <string.h>
 
-FILE* v()                                              //V
+FILE* vypissuboru()                                              //V
 {
 	FILE* f;
 	char x, b[100];
@@ -72,7 +72,7 @@ void o(FILE* f)                                          //O
 	}
 	printf("\n");
 }
-char* n(FILE* f, int* pocet)                                          //N
+char* vytvoreniepola(FILE* f, int* pocet)                                          //N
 {
 	rewind(f);
 	char c;
@@ -117,7 +117,7 @@ void s(char* spz, int a) {                                        //S
 		printf("\n");
 	}
 }
-void m(char* spz, int a) {                                  //M
+void najcastejsiznak(char* spz, int a) {                                  //M
 	int x = 0, pismeno = 0, y = 0;
 	for (int i = 65; i <= 90; i++) {
 		for (int j = 0; j <= (a * 7); j++) {
@@ -184,7 +184,7 @@ void b(FILE* f) {
 	int x, c = 0;
 	char* spz, skuska;
 	skuska = '2';
-	spz = n(f, &x);
+	spz = vytvoreniepola(f, &x);
 	for (int pg = 0; pg <= 9; pg++) {
 		for (int k = 0; k <= x * 7; k++) {
 			if (spz[k] == (48 + pg))
@@ -204,17 +204,17 @@ int main()                                                //MAIN
 	while (x != 'k') {
 		scanf("%c", &x);
 		if (x == 'v')
-			f = v();
+			f = vypissuboru();
 		if ((x == 'o') && (f != NULL))
 			o(f);
 		if ((x == 'n') && (f != NULL))
-			spz = n(f, &i);
+			spz = vytvoreniepola(f, &i);
 		if ((x == 's') && (i != 0))
 			s(spz, i);
 		if ((x == 's') && (i == 0))
 			printf("Pole nie je vytvorene \n");
 		if ((x == 'm') && (i != 0))
-			m(spz, i);
+			najcastejsiznak(spz, i);
 		if ((x == 'm') && (i == 0))
 			printf("Pole nie je vytvorene \n");
 		if ((x == 'p') && (i != 0))
