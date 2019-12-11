@@ -160,6 +160,26 @@ void z(char* spz, int a) {                                  //z
 		printf("%c%c %d\n", spz[b[k] * (a - 1)], spz[b[k] * (a - 1) + 1], y);
 
 }
+void a(char* spz, int x) {                                        //A
+	char b[x * 2];
+	int sifra, c = 0;
+	scanf("%d", &sifra);
+	for (int i = 0; i <= x - 1; i++) {
+		for (int j = 0; j <= 1; j++) {
+			b[c] = spz[(i * (x - 1)) + j];
+			c++;
+		}
+	}
+	free(spz);
+	spz = (char*)malloc((x * 2) * sizeof(char));
+	for (int pg = 0; pg <= x - 1; pg++) {
+		for (int sf = 0; sf <= 1; sf++) {
+			spz[pg * 2 + sf] = b[pg * 2 + sf];
+			printf("%c", (spz[pg * 2 + sf] + sifra));
+		}
+		printf("\n");
+	}
+}
 int main()                                                //MAIN
 {
 	FILE* f;
@@ -190,6 +210,8 @@ int main()                                                //MAIN
 			z(spz, i);
 		if ((x == 'z') && (i == 0))
 			printf("Pole nie je vytvorene \n");
+		if ((x == 'a') && (i != 0))
+			a(spz, i);
 
 	}
 	if (fclose(f) == EOF)
