@@ -180,6 +180,21 @@ void a(char* spz, int x) {                                        //A
 		printf("\n");
 	}
 }
+void b(FILE* f) {
+	int x, c = 0;
+	char* spz, skuska;
+	skuska = '2';
+	spz = n(f, &x);
+	for (int pg = 0; pg <= 9; pg++) {
+		for (int k = 0; k <= x * 7; k++) {
+			if (spz[k] == (48 + pg))
+				c++;
+		}
+		if (c != 0)
+			printf("%d:%d\n", pg, c);
+		c = 0;
+	}
+}
 int main()                                                //MAIN
 {
 	FILE* f;
@@ -212,6 +227,10 @@ int main()                                                //MAIN
 			printf("Pole nie je vytvorene \n");
 		if ((x == 'a') && (i != 0))
 			a(spz, i);
+		if ((x == 'b') && (i != 0))
+			b(f);
+		if ((x == 'b') && (i == 0))
+			printf("Pole nie je vytvorene \n");
 
 	}
 	if (fclose(f) == EOF)
