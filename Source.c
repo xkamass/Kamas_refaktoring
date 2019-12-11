@@ -35,7 +35,7 @@ read_line(char* arr, FILE* f) {                        //citanie riadkov
 	}
 	arr[i] = '\0';
 }
-void o(FILE* f)                                          
+void odmenazamestnancom(FILE* f)                                          
 {
 	rewind(f);
 	char meno[30][100], spz[30][100], typ[10][10], datum[10][10], cena[10][10], c;
@@ -104,7 +104,7 @@ char* vytvoreniepola(FILE* f, int* pocet)
 	*pocet = i;
 	return spz;
 }
-void s(char* spz, int a) {                                        
+void vypispola(char* spz, int a) {                                        
 	for (int i = 0; i <= a - 1; i++) {
 		for (int j = 0; j <= 6; j++) {
 			printf("%c", spz[(i * (a - 1)) + j]);
@@ -129,7 +129,7 @@ void najcastejsiznak(char* spz, int a) {
 	}
 	printf("%c %d\n", pismeno, y);
 }
-void p(char* spz, int a) {                                  
+void palindrom(char* spz, int a) {                                  
 	for (int i = 0; i <= a - 1; i++) {
 		if ((spz[(i * (a - 1))] == spz[(i * (a - 1)) + 6]) && (spz[(i * (a - 1)) + 1] == spz[(i * (a - 1)) + 5]) && (spz[(i * (a - 1)) + 2] == spz[(i * (a - 1)) + 4])) {
 			printf("%c%c", spz[(i * (a - 1))], spz[(i * (a - 1)) + 1]);
@@ -137,7 +137,7 @@ void p(char* spz, int a) {
 		}
 	}
 }
-void z(char* spz, int a) {                                  
+void najcastejsiokres(char* spz, int a) {                                  
 	int x = 0, y = 0, b[8], c = 0;
 	for (int i = 0; i <= a - 1; i++) {
 		for (int j = 0; j <= a - 1; j++) {
@@ -203,11 +203,11 @@ int main()
 		if (x == 'v')
 			f = vypissuboru();
 		if ((x == 'o') && (f != NULL))
-			o(f);
+			odmenazamestnancom(f);
 		if ((x == 'n') && (f != NULL))
 			spz = vytvoreniepola(f, &i);
 		if ((x == 's') && (i != 0))
-			s(spz, i);
+			vypispola(spz, i);
 		if ((x == 's') && (i == 0))
 			printf("Pole nie je vytvorene \n");
 		if ((x == 'm') && (i != 0))
@@ -215,11 +215,11 @@ int main()
 		if ((x == 'm') && (i == 0))
 			printf("Pole nie je vytvorene \n");
 		if ((x == 'p') && (i != 0))
-			p(spz, i);
+			palindrom(spz, i);
 		if ((x == 'p') && (i == 0))
 			printf("Pole nie je vytvorene \n");
 		if ((x == 'z') && (i != 0))
-			z(spz, i);
+			najcastejsiokres(spz, i);
 		if ((x == 'z') && (i == 0))
 			printf("Pole nie je vytvorene \n");
 		if ((x == 'a') && (i != 0))
