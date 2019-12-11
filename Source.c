@@ -3,7 +3,7 @@
 #include <stdlib.h> 
 #include <string.h>
 
-FILE* vypissuboru()                                              //V
+FILE* vypissuboru()                                              
 {
 	FILE* f;
 	char x, b[100];
@@ -35,7 +35,7 @@ read_line(char* arr, FILE* f) {                        //citanie riadkov
 	}
 	arr[i] = '\0';
 }
-void o(FILE* f)                                          //O
+void o(FILE* f)                                          
 {
 	rewind(f);
 	char meno[30][100], spz[30][100], typ[10][10], datum[10][10], cena[10][10], c;
@@ -72,7 +72,7 @@ void o(FILE* f)                                          //O
 	}
 	printf("\n");
 }
-char* vytvoreniepola(FILE* f, int* pocet)                                          //N
+char* vytvoreniepola(FILE* f, int* pocet)                                          
 {
 	rewind(f);
 	char c;
@@ -102,12 +102,9 @@ char* vytvoreniepola(FILE* f, int* pocet)                                       
 
 	}
 	*pocet = i;
-	//	printf("\n");
-	//	for (int pg = 0; pg <= i*7; pg++)
-	//		printf("%c", spz[pg]);
 	return spz;
 }
-void s(char* spz, int a) {                                        //S
+void s(char* spz, int a) {                                        
 	for (int i = 0; i <= a - 1; i++) {
 		for (int j = 0; j <= 6; j++) {
 			printf("%c", spz[(i * (a - 1)) + j]);
@@ -117,7 +114,7 @@ void s(char* spz, int a) {                                        //S
 		printf("\n");
 	}
 }
-void najcastejsiznak(char* spz, int a) {                                  //M
+void najcastejsiznak(char* spz, int a) {                                  
 	int x = 0, pismeno = 0, y = 0;
 	for (int i = 65; i <= 90; i++) {
 		for (int j = 0; j <= (a * 7); j++) {
@@ -132,7 +129,7 @@ void najcastejsiznak(char* spz, int a) {                                  //M
 	}
 	printf("%c %d\n", pismeno, y);
 }
-void p(char* spz, int a) {                                  //P
+void p(char* spz, int a) {                                  
 	for (int i = 0; i <= a - 1; i++) {
 		if ((spz[(i * (a - 1))] == spz[(i * (a - 1)) + 6]) && (spz[(i * (a - 1)) + 1] == spz[(i * (a - 1)) + 5]) && (spz[(i * (a - 1)) + 2] == spz[(i * (a - 1)) + 4])) {
 			printf("%c%c", spz[(i * (a - 1))], spz[(i * (a - 1)) + 1]);
@@ -140,7 +137,7 @@ void p(char* spz, int a) {                                  //P
 		}
 	}
 }
-void z(char* spz, int a) {                                  //z
+void z(char* spz, int a) {                                  
 	int x = 0, y = 0, b[8], c = 0;
 	for (int i = 0; i <= a - 1; i++) {
 		for (int j = 0; j <= a - 1; j++) {
@@ -160,7 +157,7 @@ void z(char* spz, int a) {                                  //z
 		printf("%c%c %d\n", spz[b[k] * (a - 1)], spz[b[k] * (a - 1) + 1], y);
 
 }
-void a(char* spz, int x) {                                        //A
+void a(char* spz, int x) {                                        
 	char b[x * 2];
 	int sifra, c = 0;
 	scanf("%d", &sifra);
@@ -195,7 +192,7 @@ void b(FILE* f) {
 		c = 0;
 	}
 }
-int main()                                                //MAIN
+int main()                                                
 {
 	FILE* f;
 	char* spz;
